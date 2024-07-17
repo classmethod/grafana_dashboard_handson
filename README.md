@@ -15,6 +15,14 @@ Grafana初心者向けのダッシュボードのハンズオン資料
 ## 追加リソース
 
 - [Grafana公式ドキュメント](https://grafana.com/docs/)
+- [TestData data source](https://grafana.com/docs/grafana/latest/datasources/testdata/)
+- [Configure thresholds](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-thresholds/)
+- [Time series \| Grafana documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
+- [Deep Dive \- Time Series Panel Visualizations: What Are They? How to Get Started? \| Grafana \- YouTube](https://www.youtube.com/watch?v=RKtW87cPxsw)
+[Transform data \| Grafana documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana)
+
+
+
 - [追加学習リソース](docs/additional-resources.md)
 
 ## トラブルシューティング
