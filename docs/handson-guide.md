@@ -1,21 +1,23 @@
 # Grafana ダッシュボード作成ハンズオン
 
+## はじめに
+
+このハンズオンでは、Grafanaを使用してダッシュボードを作成する基本的なスキルを学びます。TestDataソースを使用して、様々なタイプのビジュアライゼーションを作成し、ダッシュボードをカスタマイズする方法を学びます。
+
 ## ハンズオンのゴール
 
-このGrafanaハンズオンでは、Grafana Cloudの基本操作を学び、TestDataソースを活用してデータ可視化の基礎を習得します。グラフ、ゲージ、テーブルなど多様なビジュアライゼーションの作成と設定を通じて、効果的なダッシュボードの構築方法を体験します。
-
-さらに、変数を用いた動的なダッシュボード作成や、作成したダッシュボードの保存・共有方法も学びます。これにより、参加者は実際の業務や個人プロジェクトでGrafanaを活用するための基礎的なスキルと知識を獲得し、データ駆動の意思決定に貢献できる能力を身につけることができます。
+このGrafanaハンズオンでは、Grafana Cloudの基本操作を学び、TestDataソースを活用してデータ可視化の基礎を習得します。ビジュアライゼーションの編集とアラート機能の設定を通じて、ダッシュボード構築の基礎を学びます。
 
 - Grafana Cloudの基本的な操作とナビゲーション
 - TestDataソースを使用したデータの可視化
-- 複数のタイプのビジュアライゼーション（グラフ、ゲージ、テーブルなど）の作成と設定
+- 複数のタイプのビジュアライゼーションの作成と設定
 - ダッシュボードの構築とカスタマイズ
 - 変数を用いた動的なダッシュボードの作成
-- ダッシュボードの保存と共有の方法
+- アラート機能の設定と通知の作成
 
-## 環境の前提条件
+## ハンズオン環境の前提条件
 
-本ハンズオンは、Grafana Cloudの`Grafana v11.2.0-73179`を対象としています。
+本ハンズオンは、Grafana Cloudの`Grafana v11.2.0-73179`を対象としています。全てのハンズオンは、ブラウザで完結します。
 
 ## 事前準備
 
@@ -25,7 +27,7 @@
 
 [Sign Up \- Create User](https://grafana.com/auth/sign-up/create-user?pg=login)、アカウントを登録します。
 
-![alt text](../images/createa_account.png)
+![create account](../images/createa_account.png)
 
 作成するStack名とリージョン（特にこだわりがなkれば、JapanでOK）を選択し、セットアップを完了します。
 
@@ -33,11 +35,9 @@
 
 既にGrafana Cloudのアカウントをお持ちの方は、そのままサインインしてください。
 
-## はじめに
+ログイン直後、以下のようなeasy setpガイドが表示されたら、一旦なにもせずに、右上の「I'm already familar with Grafana. Skip setup」をクリックしてください。
 
-このハンズオンでは、Grafanaを使用してダッシュボードを作成する基本的なスキルを学びます。TestDataソースを使用して、様々なタイプのビジュアライゼーションを作成し、ダッシュボードをカスタマイズする方法を学びます。
-
-所要時間：約100分
+![start setup](../images/start_setup.png)
 
 ## Grafana基礎講座
 
@@ -68,9 +68,9 @@ Grafana Cloudへログイン後、作成したStackを選択し、[Manager your 
 ハンズオンで利用するためのTestDataソースの設定を行います。
 
 1. 左側のメニューから[Connections]をクリック。
-2. [Connections]メニューの中の[Data sources]をクリック。
-3. 検索バーに`TestData`と入力。
-4. `grafana-testdata-datasource`を選択。
+2. [Add new connection]をクリック。
+3. 検索バーに`TestData`と入力して、TestDataを選択。右上の[Add new Datasource]をクリック。
+4. [Save & Test]をクリック。
 
 Settingsタブが選択され設定画面が表示されます。そのままで大丈夫です。[Default]スイッチをオンにしておくと、今後Visualizationの追加時に常にこのデータソースが初期選択されるので、今回のハンズオン実施時は便利です。
 
@@ -78,18 +78,19 @@ Settingsタブが選択され設定画面が表示されます。そのままで
 
 TestDataソースには、`Scenario`と呼ばれる、クエリエディタの代わりとなるパネル用にシミュレートする機能が存在します。この`Scenario`を利用することで、クエリエディタの文法を意識する前に、各種グラフの表現方法や機能を学ぶことができます。
 
-TestDataソースについての詳細は、以下公式ドキュメントを参照してみてください。
+TestDataソースについての詳細は、以下公式ドキュメントを参照。
 
 - [TestData data source](https://grafana.com/docs/grafana/latest/datasources/testdata/)
 
 
 ## 最初のダッシュボードの作成と保存
 
-1. 左側のメニューから[Dashboards]を選択、[Create dashboard]をクリック。
-2. [ADd visualization]をクリック。
+1. 左側のメニューから[Dashboards]を選択、[New]ボタンを展開し、[New dashboard]をクリック。
+2. [Add visualization]をクリック。
 3. [SEelect data source]で`grafana-testdata-datasource`を選択。
 4. Scenarioで`CSV Metric Values`を選択。
-5. 右上の[Save]ボタンをクリックし、Titleに`My First handson dashboard`と入力し、[Save]をクリック。
+5. 右上の[Save dashboard]ボタンをクリックし、Titleに`My First handson dashboard`と入力し、[Save]をクリック。
+6. [Back to dashboard]をクリック。
 
 ここまでで、ひとまずダッシュボードの作成と保存が完了します。このあと、ダッシュボードのパネルを編集しながら、ダッシュボードの基本的な機能を確認していきます。
 
@@ -150,10 +151,10 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
    - [Line width]を2に変更。
    - [Fill opacity]を50に設定。
    - [Point size]を5に設定し、データポイントを表示。
-3. [Standard options]セクションで、[Unit]を[percent (0-100)]に変更。
+3. [Standard options]セクションで、[Unit]に`Misc`と入力し[percent (0-100)]に設定
 
 
-### Legend（判例）の調整
+### Legend（凡例）の調整
 
 1. [Legend]セクションを展開。
 2. [Display mode]を[List]から[Table]に変更。
@@ -240,7 +241,7 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 
 ### 新しいクエリの追加
 
-1. パネル編集画面の[Querys]タブをクリック。
+1. パネル編集画面の[Queries]タブをクリック。
 2. 既存のクエリの下にある[Add query]ボタンをクリック。
 3. 新しいクエリ（B）が追加されたことを確認。
 
@@ -309,7 +310,7 @@ Transformationsは、ダッシュボードを視覚化する前に、クエリ�
 ### Reduce変換の設定
 
 1. [Transformations]タブをクリック。
-2. [Add transformation]ボタンをクリック。
+2. [Add another transformation]ボタンをクリック。
 3. [Reduce]を選択。
 4. [Calculations]から[Max]、[Min]、[Mean]、[First]を選択。
 5. Visualizationから[Stat]選択。
@@ -346,7 +347,7 @@ Time seriesは基本的に時系列データの表示に利用するので、単
 1. [Add transformation]をクリック。
 2. [Add field from calculation]を選択。
 3. [Mode]を[Binary operation]に設定。
-4. [Left operand]を[A-series]、中央の[Operation]を[+]、[Right operand]を[B-series]に設定
+4. 左側を[A-series]、中央の[Operation]を[+]、右側を[B-series]に設定
 6. [Alias]に「Sum Value」と入力。
 7. A-seriesとB-seriesの合計が折れ線グラフで表示されていることを確認
 
@@ -477,7 +478,7 @@ Grafanaの変数機能を利用することで、より柔軟なダッシュボ�
 3. Scenarioで[Random Walk]を選択。
 4. [Alias]フィールドに`$metric`を入力。
 5. ダッシュボード上部のドロップダウンに`[Select Metric]`が表示されていることを確認。
-6. ドロップダウンを選択することで、グラフの判例（Alias）にドロップダウンで選択したValueが明記されていることを確認。
+6. ドロップダウンを選択することで、グラフの凡例（Alias）にドロップダウンで選択したValueが明記されていることを確認。
 
 このように、あらかじめ定義していた変数は、ダッシュボードのクエリ設定時に`$変数名`で利用することが可能です。
 
