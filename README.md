@@ -10,7 +10,7 @@ Grafana初心者向けのダッシュボードのハンズオン資料
 
 - [Grafanaダッシュボードハンズオン](docs/handson-guide.md)
 
-## 追加リソース
+## 関連公式リソース
 
 - [Grafana公式ドキュメント](https://grafana.com/docs/)
 - [TestData data source](https://grafana.com/docs/grafana/latest/datasources/testdata/)
@@ -18,7 +18,6 @@ Grafana初心者向けのダッシュボードのハンズオン資料
 - [Time series \| Grafana documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/)
 - [Deep Dive \- Time Series Panel Visualizations: What Are They? How to Get Started? \| Grafana \- YouTube](https://www.youtube.com/watch?v=RKtW87cPxsw)
 - [Transform data \| Grafana documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana)
-- [追加学習リソース](docs/additional-resources.md)
 
 ## 問題フィードバック、および改善要望
 
@@ -27,10 +26,6 @@ Grafana初心者向けのダッシュボードのハンズオン資料
 ## ライセンス
 
 このプロジェクトは MIT ライセンスの下で公開されています。詳細は [LICENSE](LICENSE) ファイルを参照してください。
-
-## 貢献
-
-バグの報告や改善の提案は、Issueを通じてお知らせください。プルリクエストも歓迎します。
 
 ## 連絡先
 
