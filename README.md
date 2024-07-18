@@ -20,9 +20,9 @@ Grafana初心者向けのダッシュボードのハンズオン資料
 - [Transform data \| Grafana documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana)
 - [追加学習リソース](docs/additional-resources.md)
 
-## トラブルシューティング
+## 問題フィードバック、および改善要望
 
-ハンズオン中に問題が発生した場合は、[トラブルシューティングガイド](docs/troubleshooting.md)を参照してください。
+ハンズオン内容に対する問題や、改善、追加コンテンツの要望などは、広くISSUEで受け付けています。お気軽に登録お願いします。
 
 ## ライセンス
 
