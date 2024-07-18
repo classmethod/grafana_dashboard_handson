@@ -35,7 +35,7 @@
 
 既にGrafana Cloudのアカウントをお持ちの方は、そのままサインインしてください。
 
-ログイン直後、以下のようなeasy setpガイドが表示されたら、一旦なにもせずに、右上の「I'm already familar with Grafana. Skip setup」をクリックしてください。
+ログイン直後、以下のようなeasy stepガイドが表示されたら、一旦なにもせずに、右上の「I'm already familiar with Grafana. Skip setup」をクリックしてください。
 
 ![start setup](../images/start_setup.png)
 
@@ -113,9 +113,9 @@ Time seriesは、時系列のデータをグラフとして表示する、Grafan
 
 1. 上述の手順の流れで、Panelの編集画面を表示。
 2. Data sourceに`grafana-test-data-datasource`を選択。
-3. Scenarioに`Rdandom Walk`を選択し、時系列データを表示。
+3. Scenarioに`Random Walk`を選択し、時系列データを表示。
 
-`Rdandom Walk`は時系列に無作為なデータが格納されているため、Time seriesのVisualizationを学ぶのに適しています。X軸に時間、Y軸に値が設定されています。
+`Random Walk`は時系列に無作為なデータが格納されているため、Time seriesのVisualizationを学ぶのに適しています。X軸に時間、Y軸に値が設定されています。
 
 ### 時間範囲の操作
 
@@ -125,7 +125,7 @@ Time seriesは、時系列のデータをグラフとして表示する、Grafan
 
 また、グラフ内をマウスカーソルで範囲指定することで、特定範囲にズームすることもできます。
 
-![time selector mouset](../images/time_selector_mouse.png)
+![time selector mouse](../images/time_selector_mouse.png)
 
 TestDataソースのRandom Walkは、かなり細かい時系列でデータが設定されているので、範囲を拡大したり縮小しながら、時間範囲指定の方法に慣れてください。
 
@@ -348,8 +348,8 @@ Time seriesは基本的に時系列データの表示に利用するので、単
 2. [Add field from calculation]を選択。
 3. [Mode]を[Binary operation]に設定。
 4. 左側を[A-series]、中央の[Operation]を[+]、右側を[B-series]に設定
-6. [Alias]に「Sum Value」と入力。
-7. A-seriesとB-seriesの合計が折れ線グラフで表示されていることを確認
+5. [Alias]に「Sum Value」と入力。
+6. A-seriesとB-seriesの合計が折れ線グラフで表示されていることを確認
 
 また、以下の操作で、A-seriesとB-seriesの平均を表示します。
 
@@ -357,8 +357,8 @@ Time seriesは基本的に時系列データの表示に利用するので、単
 2. [Add field from calculation]を選択。
 3. [Mode]を[Reduce row]に設定。
 4. [Operation]を[A-series]と[B-series]を選択。
-6. [Caluculation]を「Mean」と入力。
-7. A-seriesとB-seriesの平均が折れ線グラフで表示されていることを確認
+5. [Calculation]を「Mean」と入力。
+6. A-seriesとB-seriesの平均が折れ線グラフで表示されていることを確認
 
 ![calculation image](../images/calculation_image.png)
 
@@ -397,9 +397,9 @@ Time,Category,Value
 2. [Add transformation]ボタンをクリック。
 3. [Sort by]を選択。
 4. [Sort by]フィールドで[Value]を選択。
-6. データが値が降順に並べ替えられたことを確認。
-7. [Reverse]ボタンをクリック。
-8. データが値が昇順に並べ替えられたことを確認。
+5. データが値が降順に並べ替えられたことを確認。
+6. [Reverse]ボタンをクリック。
+7. データが値が昇順に並べ替えられたことを確認。
 
 ### データのグループ化
 
@@ -426,12 +426,12 @@ Transformationsの設定内容も含めて、このようなイメージにな�
 2. [Filter data by values]を選択。
 3. [Filter type]で[Exclude]を選択。
 4. [Conditions]で[Match all]を設定。
-5. [Add condtion]をクリック。
+5. [Add condition]をクリック。
    - [Field]に[Category]
    - [Match]に[Is equal]
    - [Value]に[A]
 
-上記により、カテゴリーがAに等しいデータをExclude（除外）します。結果として、グラフ上でCategoryがAのデータが非表示になっていれば想定どおりです。
+上記により、カテゴリーがAに等しいデータをExclude（除外）します。結果として、グラフ上でCategoryがAのデータが非表示になっていれば想定通りです。
 
 ### 他のVisualizationの確認
 
@@ -469,7 +469,7 @@ Grafanaの変数機能を利用することで、より柔軟なダッシュボ�
    - Name: `metric`
    - Label: `[Select Metric]`
    - Custom options: `cpu,memory,disk`
-5. [Back to list]をクリックし,[Save dashboard]で、変数を保存する。
+5. [Back to list]をクリックし、[Save dashboard]で、変数を保存する。
 
 ここまでで、簡単な変数の作成は完了です。この変数を利用して、グラフのタイトルを変更します。
 
@@ -570,7 +570,7 @@ Grafanaのアラートを理解するための基礎用語を紹介します。�
 
 サイドバーの[Apps] -> [Demo Data Dashboards]のクリックで、ビルトインのダッシュボードDemoをダッシュボードインストールすることができます。
 
-![demo data dashjboard](../images/demo_data_dashboards.png)
+![demo data dashboard](../images/demo_data_dashboards.png)
 
 より実践的なデータソースに紐づくVisualizationsの方式を多数見ることができます。初学者がいきなりこのDemoをみてもよくわからないことになりがちですが、ここまでのハンズオンで基礎を押さえておけば、より深ぼった学習ができるはずです。
 
@@ -588,6 +588,3 @@ Grafana PlayはGrafana Cloud上で動作する、Grafana学習用のサンドボ
 ここまでで、ダッシュボードの可視化部分の基礎はつかめたと思うので、実際に業務で利用しているデータソースを繋いで、クエリを書いてダッシュボードを構築してみましょう。
 
 サイドバーの[Connections] -> [Add new connection]で、活用できるデータソースを探索し、まずは繋いで見るところから始めてみるのも面白いと思います。
-
-
-
