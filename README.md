@@ -1,6 +1,5 @@
-# grafana_dashboard_handson
+# Grafana ダッシュボードハンズオン
 Grafana初心者向けのダッシュボードのハンズオン資料
-
 
 ## 使用方法
 
