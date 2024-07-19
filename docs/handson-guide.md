@@ -29,7 +29,7 @@
 
 ![create account](../images/createa_account.png)
 
-作成するStack名とリージョン（特にこだわりがなkれば、JapanでOK）を選択し、セットアップを完了します。
+作成するStack名とリージョン（特にこだわりがなければ、JapanでOK）を選択し、セットアップを完了します。
 
 ![setup stack](../images/setup_stack.png)
 
