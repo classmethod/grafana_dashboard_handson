@@ -8,6 +8,7 @@ Grafana初心者向けのダッシュボードのハンズオン資料
 ## ハンズオン本体
 
 - [Grafanaダッシュボードハンズオン](docs/handson-guide.md)
+- （近日公開）Grafanaクエリハンズオン
 
 ## 関連公式リソース
 
