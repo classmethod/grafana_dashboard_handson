@@ -102,24 +102,23 @@ TestDataソースについての詳細は、以下公式ドキュメントを参
 
 ![panel menu](../images/panel_menu.png)
 
-以下のPanel Editorが表示されます。基本的なパネルの編集はここで行います。
+以下のPanel Editorが表示されます。基本的なパネルの編集はここで行います。この状態で、右側のVisualizationsで[Time series]が選択されていることを確認してください。
 
 ![panel editor](../images/panel_editor.png)
 
 
 ## Time seriesによるデータの可視化
 
-Time seriesは、時系列のデータをグラフとして表示する、Grafanaダッシュボードにおいてデフォルトかつ重要なVisualizationです。時系列データを、線、点、棒形式で表示することができ、ほぼすべての時系列データが表示可能な汎用性があります。
+Time seriesは、時系列のデータをグラフとして表示する、Grafanaダッシュボードにおいてデフォルトかつ重要なVisualizationです。時系列データを、線、点、棒形式で表示することができ、ほぼすべての時系列データを表示可能な汎用性があります。
 
-1. 上述の手順の流れで、Panelの編集画面を表示。
-2. Data sourceに`grafana-test-data-datasource`を選択。
-3. Scenarioに`Random Walk`を選択し、時系列データを表示。
+1. グラフ下側、[Queries]タブが選択されていることを確認し、[Data source]に`grafana-test-data-datasource`を選択。
+2. Scenarioに`Random Walk`を選択し、時系列データを表示。
 
 `Random Walk`は時系列に無作為なデータが格納されているため、Time seriesのVisualizationを学ぶのに適しています。X軸に時間、Y軸に値が設定されています。
 
-### 時間範囲の操作
+### Panel内時間範囲の操作
 
-時間範囲は、ダッシュボードの時間範囲セレクターを利用して設定可能。
+時間範囲は、Panel上部の時間範囲セレクターを利用して設定可能。
 
 ![time selector](../images/time_selector.png)
 
@@ -129,7 +128,7 @@ Time seriesは、時系列のデータをグラフとして表示する、Grafan
 
 TestDataソースのRandom Walkは、かなり細かい時系列でデータが設定されているので、範囲を拡大したり縮小しながら、時間範囲指定の方法に慣れてください。
 
-時間範囲セレクターの右側で、グラフの更新間隔が設定できます。
+時間範囲セレクターの右側で、グラフの更新間隔を設定できます。
 
 ![refresh interval](../images/refresh_interval.png)
 
@@ -139,27 +138,32 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 - [Last 6 hours]に変更し、より長期のトレンドを確認。
 - カスタム範囲を選択し、特定の期間のデータを表示。
 
-## Panel option設定
+## Visualization設定
 
-パネルオプションの設定方法を学びます。以下に、パネル設定の代表的な設定項目を記載しますが、これ以外にも直感的に編集できるものは多数あるので、まずは編集して見た目がどのように変わるか体験してみてください。
+Visualizationの設定方法を学びます。以下に、Visualization設定の代表的な設定項目を記載しますが、これ以外にも直感的に編集できるものは多数あるので、まずは編集して見た目がどのように変わるか体験してみてください。
 
+### Time seriesの選択
+
+右側のVisualization選択箇所で、[Time series]が選択されていることを確認。
+
+![visualization time series](../images/visualization_time_series.png)
 
 ### 基本的なスタイリング
 
-1. 右側の[Panel]タブをクリック。
-2. [Graph styles]セクションで：
+1. [Graph styles]セクションを選択
    - [Line width]を2に変更。
    - [Fill opacity]を50に設定。
    - [Point size]を5に設定し、データポイントを表示。
-3. [Standard options]セクションで、[Unit]に`Misc`と入力し[percent (0-100)]に設定
-
+2. [Standard options]セクションを選択
+   - [Unit]に`Misc`と入力し[percent (0-100)]に設定
 
 ### Legend（凡例）の調整
 
 1. [Legend]セクションを展開。
-2. [Mode]を[List]から[Table]に変更。
-3. [Placement]を[Bottom]から[Right]に変更。
-4. [Values]で[Min]、[Max]、[Last]をオン。
+2. [Visibility]を選択。
+3. [Mode]を[List]から[Table]に変更。
+4. [Placement]を[Bottom]から[Right]に変更。
+5. [Values]で[Min]、[Max]、[Last]をオン。
 
 ### Axis（軸）の設定
 
@@ -174,9 +178,11 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 2. 凡例の表示を確認し、各値の意味を理解。
 3. Y軸のラベルと目盛りの変化を観察。
 
-ここまでで、代表的なPanel Optionの設定内容を体験していただきました。どのVisualizationを使っても、ここには膨大な設定項目がありますが、共通で設定できるものも多いので、ここまでで体験した内容を他のVisualizationでも活かしてください。
+ここまでで、代表的なVisualization設定内容を体験していただきました。どのVisualizationを使っても、ここには膨大な設定項目がありますが、共通で設定できるものも多いので、ここまでで体験した内容を他のVisualizationでも活かしてください。
 
-結局は、触りまくって「慣れ」てもらうのが一番早いです。みていてもよくわからない設定項目は公式ドキュメントを参考にしてみてください。
+結局は、触りまくって「慣れ」てもらうのが一番早いです。みていてもよくわからない設定項目は公式ドキュメントを参考にしてください。
+
+[Visualizations \| Grafana documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/)
 
 ## アラートしきい値の可視化
 
@@ -184,7 +190,7 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 
 ### 基本的なしきい値の設定
 
-1. [Panel]タブの[Thresholds]セクションを展開。
+1. [Thresholds]セクションを展開。
 2. [Add threshold]をクリック。
 3. 値を50に設定し、色を黄色に。
 4. もう一つ[Add threshold]をクリックし、値を70に設定、色を赤に。
@@ -198,14 +204,13 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 もしラインが表示されない場合、以下を試してみてください。
 
 - グラフのY軸の範囲設定:
-  - [Panel] > [Standard options]で[Min]と[Max]の値を確認。
+  - [Standard options]セクションで[Min]と[Max]の値を確認。
   - しきい値がこの範囲内に収まっているか確認。
 - データの範囲:
   - 表示されているデータの値の範囲を確認。
   - しきい値がデータの範囲内にあるか確認。
 - パネルの再読み込み
-  - 設定後にパネルが正しく更新されていない可能性。
-  - ダッシュボードの更新やパネルの再読み込みを試行。
+  - 設定後にパネルが正しく更新されていない可能性があるため、ダッシュボードの更新やパネルの再読み込みを試行。
 
 ### しきい値モードの変更
 
@@ -215,14 +220,14 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 
 ### しきい値のスタイル調整
 
-1. [Thresholds]セクションの[Style]を[As lines]から[As filled regions and lines]に変更。
+1. [Thresholds]セクションの[Show thresholds]を[As lines]から[As filled regions and lines]に変更。
 2. グラフ上での表示の違いを確認。
 
 ### しきい値に基づく条件付き書式
 
-1. [Standard options]セクションまでスクロール。
+1. [Standard options]セクションを展開。
 2. [Color scheme]を[From thresholds(by value)]に変更。
-3. [Color series by]を変更しながら、グラフ全体の色がしきい値に基づいて変化することを確認。
+3. [Color series by]を変更しながら、グラフの色がしきい値に基づいて変化することを確認。
 
 ### まとめ
 
@@ -231,17 +236,16 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 3. 異なるタイムレンジでグラフを表示し、しきい値の効果を確認。
 4. しきい値の視認性とグラフの全体的な見やすさのバランスを取る。
 
-しきい値の設定ですが、Time seriesでも利用可能ですが、Gaugeのような単一の値を表示するVisualizationなどでも利用可能です。基本のパネル編集の概念として覚えておきましょう。
-
+しきい値の設定はTime seriesでも利用可能ですが、Gaugeのような単一の値を表示するVisualizationなどでも利用可能です。基本のパネル編集の概念として覚えておきましょう。
 
 
 ## 複数のMetricsの追加
 
-同一グラフ上に複数のメトリクスを追加することで、それぞれのメトリクスの表示差分や統計情報の表示し、スタイルを変更します。
+同一グラフ上に複数のメトリクスを追加することで、それぞれのメトリクスの表示差分や統計情報を表示し、スタイルを変更します。
 
 ### 新しいクエリの追加
 
-1. パネル編集画面の[Queries]タブをクリック。
+1. パネル編集画面中央の[Queries]タブをクリック。
 2. 既存のクエリの下にある[Add query]ボタンをクリック。
 3. 新しいクエリ（B）が追加されたことを確認。
 
@@ -262,14 +266,14 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 
 ### 凡例の調整
 
-1. [Panel]タブの[Legend]セクションを展開。
-2. [Display mode]を[Table]に設定。
+1. [Visualization]タブの[Legend]セクションを展開。
+2. [Mode]を[Table]に設定。
 3. [Placement]を[Bottom]に設定。
 4. [Values]で[Min]、[Max]、[Total]、[Mean]をオン。
 
 ### 色の調整
 
-1. [Panel]タブの[Standard options]セクションを展開。
+1. [Visualization]タブの[Standard options]セクションを展開。
 2. [Color scheme]を[From thresholds(by value)]に変更。
 3. [Thresholds]を追加し、メトリクスの色の変化を確認。
 
@@ -280,7 +284,7 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 ### Tooltipの設定
 
 1. [Tooltip]セクションを展開。
-2. [Mode]を[All]に設定。
+2. [Tooltip mode]を[All]に設定。
 3. [Sort order]を[Descending]に設定。
 
 ### メトリクスの比較
