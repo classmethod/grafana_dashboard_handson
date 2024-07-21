@@ -266,14 +266,14 @@ Visualizationの設定方法を学びます。以下に、Visualization設定の
 
 ### 凡例の調整
 
-1. [Visualization]タブの[Legend]セクションを展開。
+1. [Legend]セクションを展開。
 2. [Mode]を[Table]に設定。
 3. [Placement]を[Bottom]に設定。
 4. [Values]で[Min]、[Max]、[Total]、[Mean]をオン。
 
 ### 色の調整
 
-1. [Visualization]タブの[Standard options]セクションを展開。
+1. [Standard options]セクションを展開。
 2. [Color scheme]を[From thresholds(by value)]に変更。
 3. [Thresholds]を追加し、メトリクスの色の変化を確認。
 
