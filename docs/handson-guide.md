@@ -109,7 +109,7 @@ TestDataソースについての詳細は、以下公式ドキュメントを参
 
 ## Time seriesによるデータの可視化
 
-Time seriesは、時系列のデータをグラフとして表示する、Grafanaダッシュボードにおいてデフォルトかつ重要なVisualizationです。時系列データを、線、点、棒ごして表示することができ、ほぼすべての時系列データの表示利用可能な汎用性があります。
+Time seriesは、時系列のデータをグラフとして表示する、Grafanaダッシュボードにおいてデフォルトかつ重要なVisualizationです。時系列データを、線、点、棒形式で表示することができ、ほぼすべての時系列データが表示可能な汎用性があります。
 
 1. 上述の手順の流れで、Panelの編集画面を表示。
 2. Data sourceに`grafana-test-data-datasource`を選択。
@@ -141,7 +141,7 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 
 ## Panel option設定
 
-パネルの代表的なオプションの設定方法を学びます。以下に、パネル設定の代表的な設定項目を記載しますが、これ以外にも直感的に編集できるものは多数あるので、まずは編集して見た目がどのように変わるか体験してみてください。
+パネルオプションの設定方法を学びます。以下に、パネル設定の代表的な設定項目を記載しますが、これ以外にも直感的に編集できるものは多数あるので、まずは編集して見た目がどのように変わるか体験してみてください。
 
 
 ### 基本的なスタイリング
@@ -157,7 +157,7 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 ### Legend（凡例）の調整
 
 1. [Legend]セクションを展開。
-2. [Display mode]を[List]から[Table]に変更。
+2. [Mode]を[List]から[Table]に変更。
 3. [Placement]を[Bottom]から[Right]に変更。
 4. [Values]で[Min]、[Max]、[Last]をオン。
 
@@ -166,7 +166,7 @@ TestDataソースのRandom Walkは静的なデータではなく常に更新さ�
 1. [Axis]セクションを展開。
 2. [Placement]を[Auto]から[Left]に変更。
 3. [Label]に「ランダム値」と入力。
-4. [Scale]を[Linear]から[Logarithmic]に変更し、違いを観察。
+4. [Scale]を[Linear]から[Logarithmic]に変更し、軸の目盛が対数軸に変更されることを観察。
 
 ### 設定の確認と調整
 
@@ -484,7 +484,7 @@ Grafanaの変数機能を利用することで、より柔軟なダッシュボ�
 
 ## 変数のチャレンジ
 
-- データの変換と処理（応用）で利用したCSVデータを利用して、TransformationsのFilterを利用して、変数でCategory（A or B or C）をフィルタできるように設定する。
+- （現在、このチャレンジは動作確認中のため実施できません）~~データの変換と処理（応用）で利用したCSVデータを利用して、TransformationsのFilterを利用して、変数でCategory（A or B or C）をフィルタできるように設定する。~~
 
 ## アラート機能
 
@@ -537,7 +537,7 @@ Grafanaのアラートを理解するための基礎用語を紹介します。�
 - チュートリアル実施時のポイント
   - はっきり言って、Alert rulesの設定は初見の人にはだいぶ難しいです。
   - Grafana Cloudを利用している場合は、そのまま、Create a contact pointから始めてください。
-  - contact pointにはWebhook.siteという、Webフックを受診できるURL作成サイトを利用します。
+  - contact pointにはWebhook.siteという、Webフックを受信できるURL作成サイトを利用します。
   - このハンズオンで想定しているGrafana Cloudの環境では、このチュートリアルのUIと完全に一致していました。落ち着いて進めてください。
   - もし時間に余裕があれば、以下のPart 2も進めてください。Alert instancesやNotification policiesについて学ぶことができます。
     - [Get started with Grafana Alerting \- Part 2 \| Grafana Labs](https://grafana.com/tutorials/alerting-get-started-pt2/)
