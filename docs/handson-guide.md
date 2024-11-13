@@ -85,6 +85,49 @@ TestDataソースについての詳細は、以下公式ドキュメントを参
 
 - [TestData data source](https://grafana.com/docs/grafana/latest/datasources/testdata/)
 
+## Grafanaのダッシュボード構造の解説
+
+Grafanaダッシュボードの構造は階層的になっており、以下のような関係性があります。最初にこの単語を改めて頭に入れておくと、入りが良いです。
+
+1. **Dashboard**
+   - 複数のPanelを含む、データ可視化の中心的な要素です。
+   - 関連するデータを一つの画面にまとめて表示します。
+
+2. **Panel**
+   - Dashboardの基本的な構成要素です。
+   - 以下の要素から構成されています：
+     a. **Query**
+     b. **Transformation** (オプション)
+     c. **Alert** (オプション)
+     d. **Visualization**
+
+### Panel内の要素の詳細
+
+a. **Query**
+   - データソースからデータを取得するためのクエリを定義します。
+   - 各データソース固有のクエリ言語を使用します。
+
+b. **Transformation**
+   - クエリの結果を可視化する前にデータを操作する機能です。
+   - 複数の変換を連続して適用することができます。
+
+c. **Alert**
+   - パネルのデータに基づいてアラートルールを設定できます。
+   - すべての可視化タイプでサポートされているわけではありません。
+
+d. **Visualization**
+   - データを視覚的に表現する方法を定義します。
+   - グラフ、テーブル、ヒートマップなど、様々な可視化オプションがあります。
+
+この構造により、ユーザーは柔軟にデータを取得し、処理し、可視化することができます。Queryでデータを取得し、必要に応じてTransformationでデータを加工し、最終的にVisualizationで視覚化します。また、条件に応じてAlertを設定することで、重要なデータの変化を監視することができます。
+
+### 参考資料
+
+- [Use dashboards](https://grafana.com/docs/grafana/latest/dashboards/use-dashboards/)
+- [Panels and visualizations](https://grafana.com/docs/grafana/latest/panels-visualizations/)
+- [Visualizations](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/)
+- [Panel overview](https://grafana.com/docs/grafana/latest/panels-visualizations/panel-overview/)
+- [Query and transform data](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/)
 
 ## 最初のダッシュボードの作成と保存
 
