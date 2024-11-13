@@ -17,7 +17,17 @@
 
 ## ハンズオン環境の前提条件
 
-本ハンズオンは、Grafana Cloudの`Grafana v11.2.0-73179`を対象としています。全てのハンズオンは、ブラウザで完結します。
+本ハンズオンは、Grafana Cloudの`Grafana v11.4.0-78678`を対象としています。全てのハンズオンは、ブラウザで完結します。
+
+### バージョン確認方法
+
+[How to Find Your Grafana Version Info \(3 different ways\) \- Grafana / How To \- Grafana Labs Community Forums](https://community.grafana.com/t/how-to-find-your-grafana-version-info-3-different-ways/86857)
+
+自分が試したバージョンでは、？アイコンをクリックしてもバージョンが表示されなかったので、上で紹介されている以下のコマンドを実行しています。
+
+```bash
+curl your-grafana-cloud-url/api/health
+```
 
 ## 事前準備
 
@@ -41,19 +51,12 @@
 
 ## Grafana基礎講座
 
-最初に、ハンズオンで必要となるGrafanaの基礎知識について解説します。今回は、以前GrafanaMeetupで登壇したときの資料を元にざっくりとしたダッシュボードの基礎について解説します。
+最初に、ハンズオンで必要となるGrafanaの基礎知識について解説します。今回は、以前G登壇したときの資料を元に、以下の部分を主に参考にしてもらえればと思います。
 
-[20分で完全に理解するGrafanaダッシュボード \- Speaker Deck](https://speakerdeck.com/hamadakoji/20fen-tewan-quan-nili-jie-surugrafanadatusiyubodo?slide=24)
+[可視化プラットフォームGrafanaの基本と活用方法の全て \- Speaker Deck](https://speakerdeck.com/hamadakoji/ke-shi-hua-puratutohuomugrafananoji-ben-tohuo-yong-fang-fa-noquan-te)
 
-- Grafanaのダッシュボードの基礎を理解する
-  - 見るべきドキュメント
-  - ダッシュボード関連のコンポーネント
-- サンプルデータを使いダッシュボードを作ってみる
-  - ダッシュボードを作る時に始めるコト
-  - ダッシュボードに関する公式マニュアル
-  - 【重要】公式マニュアルを読むときのTips
-  - Grafanaで用意されているデモ用App
-  - TestData Data source
+- Grafanaの概要
+- Grafanaの基礎を理解する
 
 ## Grafana Cloudへのログイン
 
@@ -70,7 +73,7 @@ Grafana Cloudへログイン後、作成したStackを選択し、[Manager your 
 1. 左側のメニューから[Connections]をクリック。
 2. [Add new connection]をクリック。
 3. 検索バーに`TestData`と入力して、TestDataを選択。右上の[Add new Datasource]をクリック。
-4. [Save & Test]をクリック。
+4. [Settings]の[Name]の内容はそのままにして、[Save & Test]をクリック。
 
 Settingsタブが選択され設定画面が表示されます。そのままで大丈夫です。[Default]スイッチをオンにしておくと、今後Visualizationの追加時に常にこのデータソースが初期選択されるので、今回のハンズオン実施時は便利です。
 
@@ -87,10 +90,11 @@ TestDataソースについての詳細は、以下公式ドキュメントを参
 
 1. 左側のメニューから[Dashboards]を選択、[New]ボタンを展開し、[New dashboard]をクリック。
 2. [Add visualization]をクリック。
-3. [SEelect data source]で`grafana-testdata-datasource`を選択。
-4. Scenarioで`CSV Metric Values`を選択。
-5. 右上の[Save dashboard]ボタンをクリックし、Titleに`My First handson dashboard`と入力し、[Save]をクリック。
-6. [Back to dashboard]をクリック。
+3. [Seelect data source]で`grafana-testdata-datasource`を選択。
+4. Panelが表示されます。
+5. [Queries]タブの中の[Scenario]で`CSV Metric Values`を選択。
+6. 右上の[Save dashboard]ボタンをクリックし、Titleに`My First handson dashboard`と入力し、[Save]をクリック。
+7. [Back to dashboard]をクリックし、Dashboarsトップに遷移。
 
 ここまでで、ひとまずダッシュボードの作成と保存が完了します。このあと、ダッシュボードのパネルを編集しながら、ダッシュボードの基本的な機能を確認していきます。
 
@@ -109,12 +113,12 @@ TestDataソースについての詳細は、以下公式ドキュメントを参
 
 ## Time seriesによるデータの可視化
 
-Time seriesは、時系列のデータをグラフとして表示する、Grafanaダッシュボードにおいてデフォルトかつ重要なVisualizationです。時系列データを、線、点、棒形式で表示することができ、ほぼすべての時系列データを表示可能な汎用性があります。
+Time seriesは、時系列のデータをグラフとして表示する、Grafanaダッシュボードにおいてデフォルトかつ重要なVisualizationです。時系列データを、線、点、棒形式で表示することができ、ほぼすべての時系列データを扱うことができます。
 
 1. グラフ下側、[Queries]タブが選択されていることを確認し、[Data source]に`grafana-test-data-datasource`を選択。
 2. Scenarioに`Random Walk`を選択し、時系列データを表示。
 
-`Random Walk`は時系列に無作為なデータが格納されているため、Time seriesのVisualizationを学ぶのに適しています。X軸に時間、Y軸に値が設定されています。
+`Random Walk`は時系列に無作為なデータが格納されているため、Time seriesのVisualizationを学ぶのに適しています。X軸に時間、Y軸に値が設定されています。一点注意点として、`Random Walk`は、画面をRefreshするたびにデータ全体が入れ替わるので、その点は頭に入れておいてください。
 
 ### Panel内時間範囲の操作
 
@@ -132,11 +136,13 @@ TestDataソースのRandom Walkは、かなり細かい時系列でデータが�
 
 ![refresh interval](../images/refresh_interval.png)
 
-TestDataソースのRandom Walkは静的なデータではなく常に更新されるデータのため、更新間隔を指定することで、常に新しいデータを表示することが可能です。
+TestDataソースのRandom Walkは静的なデータではなく常に過去分含めて全データが更新されるため、更新間隔を指定することで、常に新しいデータを表示することが可能です。
 
 - [Last 1 hour]を選択し、リアルタイムデータを観察。
 - [Last 6 hours]に変更し、より長期のトレンドを確認。
 - カスタム範囲を選択し、特定の期間のデータを表示。
+
+この後、Panel内容を編集していきます。データの更新を停止したい場合は、Refreshをoffに設定しておいてください。
 
 ## Visualization設定
 
@@ -154,8 +160,10 @@ Visualizationの設定方法を学びます。以下に、Visualization設定の
    - [Line width]を2に変更。
    - [Fill opacity]を50に設定。
    - [Point size]を5に設定し、データポイントを表示。
+   - グラフの内容が設定によって変更されていることを確認。
 2. [Standard options]セクションを選択
    - [Unit]に`Misc`と入力し[percent (0-100)]に設定
+   - 縦軸の表示が、%表示になっていることを確認。
 
 ### Legend（凡例）の調整
 
