@@ -516,7 +516,7 @@ Grafanaの変数機能を利用することで、より柔軟なダッシュボ�
 
 ### シンプルな変数の作成
 
-1. Dashboardsを開き、右上の[Settings]をクリック。
+1. Dashboardsを開き、右上の[Edit]をクリックした後に[Settings]をクリック。
 2. [Variables]タブを選択。
 3. [Add variable]ボタンをクリック。
 4. 以下の設定を行う：
